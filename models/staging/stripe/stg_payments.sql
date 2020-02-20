@@ -3,4 +3,4 @@ select
     "paymentMethod" as paymentmethod,
     "AMOUNT" as amount,
     "CREATED" as created
-from raw.stripe.payment
+from {{source('stripe', 'payment')}}
