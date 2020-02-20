@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: customers
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+  - name: stg_customers
+    description: Model cleans up customer data
+    columns:
+      - name: customer_id
+        description: Customer ID
+        tests:
+          - unique
+          - not_null
+  - name: stg_orders
+    description: Model cleans up orders
+    columns:
+      - name: order_id
+        description: Order ID
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: Denotes order status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+      - name: customer_id
+        description: Foreign key to Customers table
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
