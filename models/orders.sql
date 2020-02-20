@@ -10,7 +10,6 @@ select
     orders.order_id,
     orders.customer_id,
     orders.order_date,
-    orders.order_status,
     payments.paymentmethod,
     payments.amount,
     payments.created
