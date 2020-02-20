@@ -7,13 +7,32 @@ models:
         tests:
           - unique
           - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id            
   - name: fact_orders
     columns:
       - name: order_id
         description: Primary key
         tests:
           - unique
-          - not_null          
+          - not_null 
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id            
+      - name: customer_id
+        description: foreign key to dim_customers
+        tests:
+          - not_null  
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id 
+      - name: paymentmethod
+        description: payment method used (provided by stripe)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['credit_card','coupon','bank_transfer','gift_card']                                         
   - name: stg_customers
     description: Model cleans up customer data
     columns:
