@@ -15,7 +15,7 @@ sources:
           - name: "ID"
             tests:
               - unique
-              - not null
+              - not_null
 
   - name: jaffle_shop
     database: raw  
@@ -26,13 +26,13 @@ sources:
           - name: id
             tests:
               - unique
-              - not null
+              - not_null
       - name: orders
         columns: 
           - name: id
             tests:
               - unique
-              - not null
+              - not_null
         loaded_at_field: order_date::timestamp 
         freshness:
           warn_after: {count: 1, period: day}
