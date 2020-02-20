@@ -50,9 +50,12 @@ models:
               to: ref('stg_customers')
               field: customer_id            
   - name: fact_orders
+    description: "{{ doc('fact_orders') }}"
+
     columns:
       - name: order_id
-        description: Primary key
+        description: "{{ doc('order_id') }}"
+
         tests:
           - not_null 
           - relationships:
