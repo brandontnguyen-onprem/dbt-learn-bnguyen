@@ -17,6 +17,27 @@ sources:
               - unique
               - not null
 
+name: jaffle_shop
+    database: raw  
+  
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not null
+      - name: orders
+        columns: 
+          - name: id
+            tests:
+              - unique
+              - not null
+        loaded_at_field: order_date::timestamp 
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 2, period: day}                   
+
 models:
   - name: dim_customers
     columns:
