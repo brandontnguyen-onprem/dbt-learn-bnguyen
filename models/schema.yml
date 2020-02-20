@@ -17,7 +17,7 @@ sources:
               - unique
               - not null
 
-name: jaffle_shop
+  - name: jaffle_shop
     database: raw  
   
     tables:
