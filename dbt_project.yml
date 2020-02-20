@@ -32,3 +32,9 @@ models:
   jaffle_shop:
       materialized: table
       # Applies to all files under models/example/
+      marts:
+        core:
+            schema: prod
+      staging:
+            schema: stg
+    
