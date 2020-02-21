@@ -1,6 +1,4 @@
 # packages.yml
 packages:
-  - package: fishtown-analytics/snowplow
-    version: 0.7.1
-  - git: "https://github.com/fishtown-analytics/dbt-utils.git"
-    revision: 0.1.21
+  - package: fishtown-analytics/dbt_utils
+    version: 0.2.4
